@@ -1,0 +1,8 @@
+1) ¿Qué diferencia hay entre un Error y un Failure? 
+
+Failure es cuando fallan los casos de prueba, es decir, sus afirmaciones son incorrectas, mientras que un error
+es un error inesperado que se produce al intentar ejecutar el test.
+
+2) Explica por qué este test no es unitario.
+
+Porque no puede ser testeada de manera aislada del sistema, sino que necesita de las clases necesarias.
