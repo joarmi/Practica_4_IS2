@@ -277,4 +277,10 @@ public class ShoppingCartTest {
         assertTrue(instance.findProduct("Galletas"));
     }
     
+    public void testshoppingCart()
+    {
+    	ShoppingCart instance = new ShoppingCart();
+        
+        assertTrue(instance.isEmpty());
+    }
 }
