@@ -7,6 +7,8 @@ package dominio;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -21,6 +23,8 @@ import static org.junit.Assert.*;
 public class ShoppingCartTest {
     
     public ShoppingCartTest() {
+        
+        
     }
     
     @BeforeClass
@@ -196,6 +200,27 @@ public class ShoppingCartTest {
     @Test
     public void testEmpty() {
         
+        ShoppingCart instance = new ShoppingCart();
+        Product p1 = new Product("Galletas", 1.2);
+        Product p2 = new Product("Raton", 85.6);
+        Product p3 = new Product("Teclado", 5.5);
+        Product p4 = new Product("Monitor 4K", 550.6);
+        
+        instance.addItem(p1);
+        instance.addItem(p2);
+        instance.addItem(p3);
+        instance.addItem(p4);
+        
+        try{
+            
+            instance.empty();
+            
+        } catch(Exception e){
+            
+        }
+        
+        assertEquals(instance.getItemCount(), 0, 0.0);
+        
     }
 
     /**
@@ -203,7 +228,30 @@ public class ShoppingCartTest {
      */
     @Test
     public void testIsEmpty() {
+        ShoppingCart instance = new ShoppingCart();
+        Product p1 = new Product("Galletas", 1.2);
+        Product p2 = new Product("Raton", 85.6);
         
+        instance.addItem(p1);
+        instance.addItem(p2);
+        
+        instance.empty();
+        
+        assertTrue(instance.isEmpty());
+        
+        instance.addItem(p1);
+        instance.addItem(p2);
+        
+        try {
+            instance.removeItem(p1);
+            instance.removeItem(p2);
+        } catch (ProductNotFoundException ex) {
+            Logger.getLogger(ShoppingCartTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        assertTrue(instance.isEmpty());
+        
+       
     }
 
     /**
@@ -219,7 +267,14 @@ public class ShoppingCartTest {
      */
     @Test
     public void testFindProduct() {
+        ShoppingCart instance = new ShoppingCart();
+        Product p1 = new Product("Galletas", 1.2);
+        Product p2 = new Product("Raton", 85.6);
         
+        instance.addItem(p1);
+        instance.addItem(p2);
+        
+        assertTrue(instance.findProduct("Galletas"));
     }
     
 }
