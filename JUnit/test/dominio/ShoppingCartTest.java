@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Javier Argente Micó
+ * @author Javier Argente Micó y Santiago Castelló Beltrán
  */
 public class ShoppingCartTest {
     
@@ -46,6 +46,8 @@ public class ShoppingCartTest {
     /**
      * Test of getBalance method, of class ShoppingCart.
      */
+    /*Comprobamos que el metodo getBalance suma bien los productos, comprobandolo con la suma realizada 
+      por nosotros mediante un assertEquals*/
     @Test
     public void testGetBalance() {
         System.out.println("getBalance");
@@ -72,6 +74,8 @@ public class ShoppingCartTest {
     /**
      * Test of addItem method, of class ShoppingCart.
      */
+    /*Este test comprueba si se anyaden correctamente items al carrito, se comprueba mediante un assertTrue 
+      llamando a findProduct*/
     @Test
     public void testAddItem() {
        
@@ -104,6 +108,7 @@ public class ShoppingCartTest {
     /**
      * Test of removeItem method, of class ShoppingCart.
      */
+    /*Anyadimos un elemento y lo borramos para ver si el metodo RemoveItem funciona correctamente*/
     @Test
     public void testRemoveItem() throws Exception {
         
@@ -149,6 +154,7 @@ public class ShoppingCartTest {
         
     }
     
+    /*Se crea un carrito vacio y se intenta eliminar un producto cuando este no tiene ninguno, debemos obtener un fallo*/
     @Test
     public void  testRemoveItemCarroVacio() {
         
@@ -171,6 +177,7 @@ public class ShoppingCartTest {
     /**
      * Test of getItemCount method, of class ShoppingCart.
      */
+    /*Mientras vamos anyadiendo productos, comprobamos si estos se cuentan correctamente estos anyadidos con un assertEquals*/
     @Test
     public void testGetItemCount() {
         
@@ -197,6 +204,8 @@ public class ShoppingCartTest {
     /**
      * Test of empty method, of class ShoppingCart.
      */
+    /*Comprobamos que la funcion empty funciona correctamente, para ello llenamos el carrito con varios productos 
+      y posteriormente lo vaciamos mediante la funcion empty y comprobamos con un assert que es igual a 0*/
     @Test
     public void testEmpty() {
         
@@ -226,11 +235,15 @@ public class ShoppingCartTest {
     /**
      * Test of isEmpty method, of class ShoppingCart.
      */
+    /*Comprobamos que el carro esta vacio en 3 casos distintos, cuando se crea un carrito, cuando se llama a la 
+      funcion empty, y cuando se vacia mediante la eliminacion de todos sus elementos*/
     @Test
     public void testIsEmpty() {
         ShoppingCart instance = new ShoppingCart();
         Product p1 = new Product("Galletas", 1.2);
         Product p2 = new Product("Raton", 85.6);
+        
+        assertTrue(instance.isEmpty());
         
         instance.addItem(p1);
         instance.addItem(p2);
@@ -266,6 +279,7 @@ public class ShoppingCartTest {
      * Test of findProduct method, of class ShoppingCart.
      */
     @Test
+    /*Se anyaden dos productos al carrito y buscamos un producto para ver si funciona correctamente*/
     public void testFindProduct() {
         ShoppingCart instance = new ShoppingCart();
         Product p1 = new Product("Galletas", 1.2);
@@ -276,7 +290,7 @@ public class ShoppingCartTest {
         
         assertTrue(instance.findProduct("Galletas"));
     }
-    
+    /*En el constructor comprobamos si el carrito se crea bien y esta vacio*/
     public void testshoppingCart()
     {
     	ShoppingCart instance = new ShoppingCart();

@@ -29,12 +29,14 @@ import org.junit.runners.Parameterized.Parameters;
 @RunWith(value = Parameterized.class)
 public class ParamShoppingCartTest {    
     
+    /*Creamos la lista de parametros para cada prueba, estos objetos seran los parametros que utilizaran 
+      los metodos para utilizar las variables*/
     @Parameters
     public static Iterable<Object[]> getData() {
         List<Object[]> obj = new ArrayList<>();
         obj.add(new Object[] {3, 12});
         obj.add(new Object[] {2, 8});
-        obj.add(new Object[] {1, 5});
+        obj.add(new Object[] {1, 4});
         
         return obj;
     }
@@ -42,7 +44,7 @@ public class ParamShoppingCartTest {
     private int precio1;
     private int precio2;
     
-    
+    /*pasamos las 2 variables al constructor para que las inicialice*/
     public ParamShoppingCartTest(int precio1, int precio2) {
         
         this.precio1 = precio1;
@@ -69,7 +71,7 @@ public class ParamShoppingCartTest {
      * Test of getBalance method, of class ShoppingCart.
      */
     @Test
-    
+    /*He utilizado los 2 precios, uno para que sea el precio de cada producto y el otro sera la suma total de los precios*/
     public void testGetBalance() {
         System.out.println("getBalance");
         ShoppingCart instance = new ShoppingCart();
